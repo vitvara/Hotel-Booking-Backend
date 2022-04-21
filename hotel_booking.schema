@@ -1,0 +1,24 @@
+-- Schema for course enrollment database
+-- using SQLite data types.
+-- To create a database named "hotel.db" with this schema use:
+-- sqlite3 hotel.db < hotel_booking.schema
+
+CREATE TABLE IF NOT EXISTS users (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT    NOT NULL,
+    password         TEXT    NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS hotel (
+    id              INTEGER PRIMARY KEY,
+    room_number     INTEGER NOT NULL,
+    building        TEXT NOT NULL,
+    floor           INTEGER NOT NULL,
+    bed             INTEGER,
+    price           INTEGER NOT NULL,
+    max_guest       INTEGER,
+    status          TEXT DEFAULT 'avaliable',
+    type           TEXT,
+    user_id         INTEGER DEFAULT NULL,
+    FOREIGN KEY (user_id) REFERENCES user (id)
+);
