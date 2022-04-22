@@ -9,19 +9,28 @@ Base = declarative_base()
 
 
 class User(Base):
+    """user account"""
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True, nullable=True)
     username = Column(String, nullable=True)
     password = Column(String, nullable=True)
 
-    addresses = relationship("Address", back_populates="user")
-
     def __repr__(self):
         return f"User(id={self.id}, name={self.username})"
 
 
-class Hotel(Base):
+class Room(Base):
+    """Room infomation
+
+    room_number: room number in the building
+    bed: number of bed
+    status: Default=avaliable=> can be reserved 
+                    pending=> working on payment of customer (customer hasn't pay yet)
+                    full=> room already booked
+    type: room type
+    user_id: id of ther user that book the room; None if no one has reserved yet.
+    """
     __tablename__ = 'hotel'
 
     id = Column(Integer, primary_key=False, nullable=False)
