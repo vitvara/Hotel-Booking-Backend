@@ -1,6 +1,8 @@
 # python virtual enviroment
 .env
 
+__pycache__/
+
 .vscode
 
 hotel.db
