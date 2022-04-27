@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
     password         TEXT    NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS hotel (
+CREATE TABLE IF NOT EXISTS room (
     id              INTEGER PRIMARY KEY,
     room_number     INTEGER NOT NULL,
     building        TEXT NOT NULL,
