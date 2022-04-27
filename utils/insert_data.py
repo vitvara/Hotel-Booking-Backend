@@ -1,10 +1,10 @@
 import sqlite3
 import pandas as pd
 from sqlite3 import Error
-
+import os
 DB_FILE_PATH = "hotel.db"
-XL_HOTEL_FILE_PATH = r"data\Book1.xlsx"
-XL_USERS_FILE_PATH = r"data\users.xlsx"
+XL_HOTEL_FILE_PATH = os.path.join("data", 'room.xlsx')
+XL_USERS_FILE_PATH = os.path.join("data", "users.xlsx")
 
 
 def connect_to_db(db_file):
@@ -26,21 +26,21 @@ def insert_hotel_values_to_table(xl_file):
         c = conn.cursor()
 
         # Create table if it is not exist
-        c.execute(f"""CREATE TABLE IF NOT EXISTS hotel(
+        c.execute(f"""CREATE TABLE IF NOT EXISTS room(
     id              INTEGER PRIMARY KEY,
     room_number     INTEGER NOT NULL,
     building        TEXT NOT NULL,
     floor           INTEGER NOT NULL,
     bed             INTEGER,
     max_guest       INTEGER,
-    price,          INTEGER
+    price          INTEGER,
     status          TEXT DEFAULT 'avaliable',
     type            TEXT,
     user_id         INTEGER DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES user (id)
 );""")
         df = pd.read_excel(xl_file)
-        df.to_sql(name='hotel', con=conn, if_exists='append', index=False)
+        df.to_sql(name='room', con=conn, if_exists='append', index=False)
         conn.close()
         print('SQL insert process finished')
     else:
