@@ -2,6 +2,7 @@ import sqlite3
 import pandas as pd
 from sqlite3 import Error
 import os
+import sys
 DB_FILE_PATH = "hotel.db"
 XL_HOTEL_FILE_PATH = os.path.join("data", 'room.xlsx')
 XL_USERS_FILE_PATH = os.path.join("data", "users.xlsx")
