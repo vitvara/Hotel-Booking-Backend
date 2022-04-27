@@ -1,6 +1,7 @@
 from .dao_base import DAOBase
 from models.models import User
-from sqlalchemy import select, Engine
+from sqlalchemy import select
+from sqlalchemy.engine import Engine
 from typing import List
 class UsersDAO(DAOBase):
     table_name = "users"

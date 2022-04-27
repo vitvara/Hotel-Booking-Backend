@@ -1,14 +1,15 @@
 from cgitb import reset
 from typing import List
 from .dao_base import DAOBase
-from sqlalchemy import select, Engine
+from sqlalchemy import select
+from sqlalchemy.engine import Engine
 from models.models import Room
 
 class RoomDAO(DAOBase):
     
     def __init__(self, engine: Engine):
         super().__init__(engine)
-        
+
     def book_room(self, room_id: int, user_id: int) -> None:
         """Update room status to `pending`
 
