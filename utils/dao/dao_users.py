@@ -11,4 +11,6 @@ class UsersDAO(DAOBase):
         statement = select(User).filter_by(id=user_id)
         return self._session.execute(statement).all()
         
-    
+    def get_user_by_name(self, username):
+        statement = select(User).filter_by(username=username)
+        return self._session.execute(statement).all()
