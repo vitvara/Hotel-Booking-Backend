@@ -27,25 +27,25 @@ class Room(Base):
     bed: number of bed
     status: Default=avaliable=> can be reserved 
                     pending=> working on payment of customer (customer hasn't pay yet)
-                    full=> room already booked
+                    reserved=> room already booked
     type: room type
     user_id: id of ther user that book the room; None if no one has reserved yet.
     """
-    __tablename__ = 'hotel'
+    __tablename__ = 'room'
 
-    id = Column(Integer, primary_key=False, nullable=False)
+    id = Column(Integer, primary_key=True, nullable=False)
     room_number = Column(Integer, nullable=False)
     building = Column(String, nullable=False)
     floor = Column(Integer, nullable=False)
     bed = Column(Integer)
     max_guest = Column(Integer)
     status = Column(String, default="avaliable")
-    user_id = Column(Integer, ForeignKey('users.id'))
+    user_id = Column(Integer, ForeignKey(User.id))
     type = Column(String)
     price = Column(Integer, nullable=False)
 
     def __repr__(self):
-        return f"Hotel(id={self.id}, \
+        return f"Room(id={self.id}, \
     room_number={self.room_number}, building={self.building}, \
     floor={self.floor}, bed={self.bed}, max_guest={self.max_guest},\
         status={self.status}, type={self.type}, price={self.price})"
