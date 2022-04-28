@@ -31,7 +31,7 @@ source .venv/bin/activate
 
 Setup Database
 ```
-python setup.py
+python setup.py <DB url/name>
 ```
 
 ## UML
