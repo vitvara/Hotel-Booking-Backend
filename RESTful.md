@@ -5,13 +5,16 @@ This service provided the connection authorization to allow user to autorize and
 
 # Authorization
 We use API keys to authenticate the request
+## Common properties
+> In authorization we use the our end point is `POST api/auth/...`
 
+|body|type|
+|---|---|
+|username| `String`|
+|password| `String`|
 ## Resigter
+
 ```py
-"""
-username: String
-password: String
-"""
 body = {
     username: <username>, 
     password: <password>  
@@ -31,10 +34,6 @@ message: "Username is taken"
 ```
 ## Login
 ```py
-"""
-username: String
-password: String
-"""
 body = {
     username: <username>, 
     password: <password>  

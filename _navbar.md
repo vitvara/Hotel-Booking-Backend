@@ -1,5 +1,9 @@
 <!-- _navbar.md -->
 * [Home](README.md)
+* [Common Specification](common_specification.md)
+    * [Rate limits](common_specification.md?id=rate-limits)
+    * [Status codes](common_specification.md?id=status-codes)
+    * [Error responses](common_specification.md?id=error-responses)
 * [Requirement](requirement.md)
 * [Installation](installation.md)
 * [UML](uml.md)

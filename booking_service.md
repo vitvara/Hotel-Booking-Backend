@@ -1,15 +1,32 @@
 # Room Booking Service
+## Common properties
+> The End point for this API is `POST /api/hotel/room/...`  
+
+|headers| type |description|
+|---|---|--|
+|token| `String`| token used to authorize when user want book room or get room that user has been reserved |
+
+|bodys|type|description|
+|---|---|---|
+|`timestamp`|`datetime`| The time that client has created the request|
+|`room_id`|`int`| Room id selected from user|
 
 ## Booking Room
 This API required token to authorize the token come from [login](RESTful.md?id=Login)
-```
+```py
 headers = {
   "headers" {
     ...,
     "Authorization": <token>
   }
 }
-response = request.post("http://some.hotel.url/api/hotel/book/room/<room_id>", headers=headers)
+
+body = {
+  "timestamp": <time>,
+  "room_id": <room_id>
+}
+
+response = request.post("http://some.hotel.url/api/hotel/room/book/", headers=headers, data=body)
 ```
 
 Success case
@@ -41,7 +58,13 @@ headers = {
     "Authorization": <token>
   }
 }
-response = request.post("http://some.hotel.url/api/hotel/confirm/room/<room_id>", headers=headers)
+
+body = {
+  "timestamp": <time>,
+  "room_id": <room_id>
+}
+
+response = request.post("http://some.hotel.url/api/hotel/room/confirm", headers=headers, data=body)
 ```
 
 success case
@@ -71,7 +94,13 @@ headers = {
     "Authorization": <token>
   }
 }
-response = request.post("http://some.hotel.url/api/hotel/cancel/room/<room_id>", headers=headers)
+
+body = {
+  "timestamp": <time>,
+  "room_id": <room_id>
+}
+
+response = request.post("http://some.hotel.url/api/hotel/room/cancel", headers=headers, data=body)
 ```
 
 success case
