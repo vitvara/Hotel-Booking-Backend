@@ -13,6 +13,11 @@
         * [Login](RESTful.md?id=Login)
     * [Booking Service](booking_service.md)
         * [Booking Room](booking_service.md?id=booking-room)
+        * [Confirmation](booking_service.md?id=confirmation)
         * [Cancellation](booking_service.md?id=cancellation)
+    * [Room](room.md)
+        * [GET All room](room.md?id=get-all-room)
+        * [GET All avaliable room](room.md?id=get-all-avaliable-room)
+        * [GET Room by user id](room.md?id=get-room-by-user-id)
 
     
