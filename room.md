@@ -49,10 +49,19 @@ Example data
 ```
 
 ## GET Room by user id
+You need to have token from login to call this method
 ```py
-response = requests.get("http://some.hotel.url/api/hotel/get-room/<user-id>")
+headers = {
+  "headers" {
+    ...,
+    "Authorization": <token>
+  }
+}
+
+response = requests.get("http://some.hotel.url/api/hotel/get-room", headers=headers))
 ```
 
+Example data
 ```
 [
     {
@@ -69,6 +78,12 @@ response = requests.get("http://some.hotel.url/api/hotel/get-room/<user-id>")
     }
     ...
 ]
+```
+
+failed case
+```
+status_code: 401
+message: "Authorize failed: Please login before you call this method"
 ```
 
 
