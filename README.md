@@ -4,7 +4,6 @@
 This application was create for Hotel to manage the bookings.
 
 ## Document
-[Requirement](requirement.md)
-[Installation](installation.md)
-[UML](uml.md)
-
+* [Requirement](requirement.md)
+* [Installation](installation.md)
+* [UML](uml.md)
